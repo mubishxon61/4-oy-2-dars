@@ -15,3 +15,19 @@ function m(a) {
 }
 
 console.log(m("5")("+")("4")("="));
+
+
+function m(a) {
+  let expression = a; 
+  return function(op) {
+    if (op === "=") {
+      return eval(expression); 
+    }
+    return function(b) {
+      expression += op + b; 
+      return m(expression);
+    };
+  };
+}
+
+console.log(m("4")("+")("6")("*")("8")("/")("3")("=")); // 20
