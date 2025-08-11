@@ -10,4 +10,4 @@ function m(a) {
   };
 }
 
-console.log(m("5")("+")("4"));
+console.log(m("5")("+")("4")("="));
