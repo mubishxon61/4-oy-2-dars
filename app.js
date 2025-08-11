@@ -4,7 +4,11 @@ function m(a) {
   return function(operation) {
     if (operation === "+") {
       return function(b) {
-        return result + +(b);
+        return function (equals) {
+          if (equals === "=") {
+            return result + +(b);
+          }
+        }
       };
     }
   };
